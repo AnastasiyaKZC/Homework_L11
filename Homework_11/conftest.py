@@ -14,14 +14,14 @@ def setup_browser():
             "enableVideo": True
         }
     }
-    options.capabilities.update(selenoid_capabilities)
+    options.set_capability("selenoid:options", selenoid_capabilities)
 
     driver = webdriver.Remote(
         command_executor="https://user1:1234@selenoid.autotests.cloud/wd/hub",
         options=options
     )
 
-    browser.config.driver = driver  # <-- Важно! Передаём WebDriver в Selene
+    browser.set_driver(driver)  # <-- Корректный способ передачи WebDriver в Selene
     yield browser
 
-    driver.quit()
+    browser.quit()  # <-- Корректное завершение сессии
