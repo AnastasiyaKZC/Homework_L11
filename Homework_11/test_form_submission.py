@@ -2,7 +2,9 @@ import allure
 from selene import browser, have, be, command
 
 @allure.title("Успешное заполнение формы регистрации")
-def test_fill_form():
+def test_fill_form(setup_browser):
+    browser = setup_browser  # Явно передаём фикстурный браузер
+
     with allure.step("открываю браузер"):
         browser.open("https://demoqa.com/automation-practice-form")
         browser.element("#firstName").type("Анастасия")
