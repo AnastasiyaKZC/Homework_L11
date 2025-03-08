@@ -3,7 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selene import browser
 
-
 @pytest.fixture(scope="function")
 def setup_browser():
     options = Options()
@@ -22,12 +21,7 @@ def setup_browser():
         options=options
     )
 
-    # Привязываем WebDriver к Selene
-    browser.config.driver = driver
-    browser.config.window_width = 1280
-    browser.config.window_height = 1220
-    browser.config.timeout = 2.0
+    browser.config.driver = driver  # <-- Важно! Передаём WebDriver в Selene
+    yield browser
 
-    yield browser  # Передаём в тест настроенный browser
-
-    driver.quit()  # Закрываем WebDriver
+    driver.quit()
