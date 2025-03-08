@@ -24,7 +24,7 @@ def setup_browser():
     )
 
     browser = Browser(Config(driver=driver))  # исправлено название переменной
-
+    print(f"setup_browser fixture returns: {type(browser)}")
     yield browser  # фикстура отдаёт browser
 
     driver.quit()  # закрытие драйвера после теста
