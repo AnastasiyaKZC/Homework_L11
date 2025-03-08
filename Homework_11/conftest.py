@@ -21,7 +21,6 @@ def setup_browser():
         options=options
     )
 
-    browser.set_driver(driver)
-    yield browser
+    browser.config.driver = driver
 
-    browser.quit()
+    driver.quit()
