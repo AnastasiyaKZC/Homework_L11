@@ -21,7 +21,7 @@ def setup_browser():
         options=options
     )
 
-    browser.set_driver(driver)  # <-- Корректный способ передачи WebDriver в Selene
+    browser.set_driver(driver)
     yield browser
 
-    browser.quit()  # <-- Корректное завершение сессии
+    browser.quit()
