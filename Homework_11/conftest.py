@@ -33,5 +33,6 @@ def setup_browser():
     attach.add_screenshot(browser)
     attach.add_logs(browser) # консольные ошибки браузера
     attach.add_html(browser)
+    attach.add_video(browser)
 
     browser.quit()  # закрытие драйвера после теста
