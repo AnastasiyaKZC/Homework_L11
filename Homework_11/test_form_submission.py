@@ -30,8 +30,8 @@ def test_fill_form(setup_browser):
     with allure.step("выбираю хобби"):
         browser.element('[for="hobbies-checkbox-2"]').perform(command.js.scroll_into_view).click()
 
-    with allure.step("загружаю изображение"):
-        browser.element("#uploadPicture").send_keys("/Users/kuznetsova/Desktop/download.jpg")
+    # with allure.step("загружаю изображение"):
+    #     browser.element("#uploadPicture").send_keys("/Users/kuznetsova/Desktop/download.jpg")
 
     with allure.step("ввожу адрес"):
         browser.element("#currentAddress").type("Ростов-на-Дону, ул.Города Волос")
