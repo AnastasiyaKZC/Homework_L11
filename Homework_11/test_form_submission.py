@@ -28,7 +28,7 @@ def test_fill_form(setup_browser):
         browser.element("#subjectsInput").type("Math").press_enter()
 
     with allure.step("выбираю хобби"):
-        browser.element('[for="hobbies-checkbox-2"]').click()
+        browser.element('[for="hobbies-checkbox-2"]').perform(command.js.scroll_into_view).click()
 
     with allure.step("загружаю изображение"):
         browser.element("#uploadPicture").send_keys("/Users/kuznetsova/Desktop/download.jpg")
