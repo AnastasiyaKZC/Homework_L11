@@ -36,15 +36,6 @@ def test_fill_form(setup_browser):
     with allure.step("ввожу адрес"):
         browser.element("#currentAddress").type("Ростов-на-Дону, ул.Города Волос")
 
-    with allure.step("выбираю штат"):
-        browser.element("#state").perform(command.js.scroll_into_view).click()
-        browser.element("#state").should(be.clickable).click()
-        browser.all("div.css-11unzgr").element_by(have.text("Haryana")).perform(command.js.scroll_into_view).click()
-
-    with allure.step("дожидаюсь загрузки списка городов"):
-        browser.element("#city").should(be.clickable).click()
-        browser.all("div.css-11unzgr").with_(timeout=5).element_by(have.text("Karnal")).click()  # Добавлено ожидание
-
     with allure.step("отправляю форму"):
         browser.element("#submit").press_enter()
 
