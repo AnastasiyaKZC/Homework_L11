@@ -1,8 +1,10 @@
 import allure
-from selene import browser, have, be, command
+from selene import have, be, command
 
 @allure.title("done")
-def test_fill_form():
+def test_fill_form(setup_browser):
+    browser = setup_browser
+
 
     with allure.step("открываю браузер"):
         browser.open("https://demoqa.com/automation-practice-form")
@@ -37,7 +39,7 @@ def test_fill_form():
     with allure.step("выбираю штат"):
         browser.element("#state").perform(command.js.scroll_into_view).click()
         browser.element("#state").should(be.clickable).click()
-        browser.all("div.css-11unzgr").element_by(have.text("Haryana")).click()
+        browser.all("div.css-11unzgr").element_by(have.text("Haryana")).perform(command.js.scroll_into_view).click()
 
     with allure.step("дожидаюсь загрузки списка городов"):
         browser.element("#city").should(be.clickable).click()
