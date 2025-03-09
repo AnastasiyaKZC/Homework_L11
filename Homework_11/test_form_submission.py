@@ -39,5 +39,5 @@ def test_fill_form(setup_browser):
     with allure.step("отправляю форму"):
         browser.element("#submit").press_enter()
 
-    with allure.step("проверка что форма отправлена"):
+    with allure.step("проверка, что форма отправлена"):
         browser.element(".modal-title").should(have.text("Thanks for submitting the form"))
