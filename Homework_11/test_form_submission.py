@@ -1,6 +1,5 @@
 import allure
 from selene import have, command
-from conftest import setup_browser
 
 @allure.title("done")
 def test_fill_form(setup_browser):
