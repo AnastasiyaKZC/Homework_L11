@@ -1,5 +1,6 @@
 import allure
 from selene import have, command
+from pathlib import Path
 
 @allure.title("done")
 def test_fill_form(setup_browser):
@@ -31,7 +32,9 @@ def test_fill_form(setup_browser):
         browser.element('[for="hobbies-checkbox-2"]').perform(command.js.scroll_into_view).click()
 
     with allure.step("загружаю изображение"):
-        browser.element("#uploadPicture").send_keys("/Users/kuznetsova/PycharmProjects/Homework_L11/Homework_11/download.jpg")
+        # browser.element("#uploadPicture").send_keys("/Users/kuznetsova/PycharmProjects/Homework_L11/Homework_11/download.jpg")
+        file_path = str(Path(__file__).parent / "download.jpg")
+        browser.element('#uploadPicture').send_keys(file_path)
 
     with allure.step("ввожу адрес"):
         browser.element("#currentAddress").type("Ростов-на-Дону, ул.Города Волос")
